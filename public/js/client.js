@@ -774,7 +774,7 @@ ws.onmessage = (message) => {
       </div>
       `;
       $(".flip-card-front").html(
-        `<img class="dealerCardImg" src="/imgs/Card_back.svg">`
+        `<img class="dealerCardImg" src="/assets/design/2026-02-08-blackjack-card-back.png">`
       );
 
       setTimeout(function () {
@@ -1053,7 +1053,7 @@ ws.onmessage = (message) => {
 
       // setTimeout(function() {
       $(".flip-card-front").html(
-        `<img class="dealerCardImg" src="/imgs/Card_back.svg">`
+        `<img class="dealerCardImg" src="/assets/design/2026-02-08-blackjack-card-back.png">`
       );
       $(".flip-card-back").html(
         `<img class="dealerCardImg" src="/imgs/` +

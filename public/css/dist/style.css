@@ -1,4 +1,23 @@
 @charset "UTF-8";
+
+/* ============================================
+   LUXURY CASINO THEME - VIP Edition
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@400;600&display=swap');
+
+:root {
+  --gold-primary: #D4AF37;
+  --gold-light: #F4E4BC;
+  --gold-dark: #B8860B;
+  --navy-dark: #0a1628;
+  --navy-medium: #1a2a4a;
+  --emerald: #0d5c36;
+  --emerald-dark: #0a4028;
+  --cream: #FDF5E6;
+  --black-soft: #1a1a1a;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -7,7 +26,7 @@
 
 html {
   overflow: hidden;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Cinzel", "Open Sans", sans-serif;
   width: 100vw;
   height: 100%;
   padding: 0;
@@ -15,25 +34,40 @@ html {
 }
 
 body {
-  background: radial-gradient(#38833c, #1e421f);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background: url("/assets/design/2026-02-08-blackjack-background.png") no-repeat center center fixed;
+  background-size: cover;
   padding: 0;
   margin: 0;
   opacity: 1;
 }
 
-#table-graphics {
-  position: absolute;
+/* Elegant overlay for the VIP atmosphere */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("/imgs/table-graphics3.svg");
+  background: radial-gradient(ellipse at center, rgba(10,22,40,0.3) 0%, rgba(10,22,40,0.7) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#table-graphics {
+  position: absolute;
+  width: 80%;
+  height: 70%;
+  left: 10%;
+  top: 15%;
+  background-image: url("/assets/design/2026-02-08-blackjack-table-felt.png");
   background-repeat: no-repeat;
   background-position: center;
-  transform: scale(0.8);
-  top: 20px;
-  opacity: 0.15;
+  background-size: contain;
+  opacity: 0.9;
   pointer-events: none;
+  border-radius: 50%;
+  box-shadow: 0 0 60px rgba(0,0,0,0.5), inset 0 0 100px rgba(0,0,0,0.3);
 }
 
 #dark-overlay {
@@ -114,7 +148,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(#38833c, #1e421f);
+  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-medium) 50%, var(--navy-dark) 100%);
   z-index: 101;
 }
 
@@ -123,49 +157,45 @@ body {
   height: 100vh;
   width: 100%;
   overflow: hidden;
+  z-index: 1;
 }
+
+/* Luxury Logo */
+#luxury-logo {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: auto;
+  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5));
+  z-index: 10;
+}
+
 #main-menu #blackjack-title {
   position: absolute;
   display: flex;
   justify-content: center;
-  font-size: 60px;
-  font-weight: 500;
-  font-family: "Ultra", sans-serif;
-  color: goldenrod;
+  font-size: 54px;
+  font-weight: 700;
+  font-family: "Cinzel", serif;
+  letter-spacing: 4px;
+  color: var(--gold-primary);
   width: 100%;
   padding: 0;
-  margin-top: 40px;
+  margin-top: 200px;
   pointer-events: none;
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f2f6f8+0,d8e1e7+50,b5c6d0+51,e0eff9+100;Grey+Gloss+%232 */
-  background: #f2f6f8;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#f2f6f8", endColorstr="#e0eff9",GradientType=0 );
-  /* IE6-9 */
+  text-shadow: 0 0 30px rgba(212, 175, 55, 0.6), 0 2px 4px rgba(0,0,0,0.8);
+  background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold-primary) 40%, var(--gold-dark) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 #main-menu #blackjack-title span {
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#aebcbf+0,6e7774+50,0a0e0a+51,0a0809+100;Black+Gloss */
-  background: #aebcbf;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #aebcbf 0%, #6e7774 50%, #0a0e0a 51%, #0a0809 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #aebcbf 0%, #6e7774 50%, #0a0e0a 51%, #0a0809 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #aebcbf 0%, #6e7774 50%, #0a0e0a 51%, #0a0809 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#aebcbf", endColorstr="#0a0809",GradientType=0 );
-  /* IE6-9 */
+  background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  color: white;
+  -webkit-text-fill-color: transparent;
 }
 
 #a_offline {
@@ -175,14 +205,13 @@ body {
 #main-box {
   position: relative;
   width: 500px;
-  border: 3px solid black;
-  margin: 160px auto 0 auto;
+  border: 2px solid var(--gold-primary);
+  margin: 280px auto 0 auto;
   text-align: center;
-  border-radius: 10px 10px 0px 0px;
-  background-color: #2d6b30;
-  -webkit-box-shadow: 0px 0px 50px -20px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 50px -20px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 50px -20px rgba(0, 0, 0, 0.75);
+  border-radius: 16px 16px 0px 0px;
+  background: linear-gradient(180deg, rgba(26,42,74,0.95) 0%, rgba(10,22,40,0.98) 100%);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 40px rgba(0,0,0,0.6), 0 0 80px rgba(212,175,55,0.15), inset 0 1px 0 rgba(255,255,255,0.1);
   z-index: 3;
 }
 #main-box div {
@@ -279,16 +308,23 @@ body {
 }
 #main-box #btnOffline {
   margin-top: 40px;
-  background-color: #143853;
+  background: linear-gradient(180deg, var(--navy-medium) 0%, var(--navy-dark) 100%);
+  border: 1px solid var(--gold-dark);
+  transition: all 0.3s ease;
 }
 #main-box #btnOffline:hover {
-  background-color: #0d2436;
+  background: linear-gradient(180deg, #2a3a5a 0%, var(--navy-medium) 100%);
+  box-shadow: 0 0 20px rgba(212,175,55,0.3);
 }
 #main-box #btnCreate, #main-box #btnJoin {
-  background-color: #c7971d;
+  background: linear-gradient(180deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
+  color: var(--navy-dark);
+  border: 1px solid var(--gold-light);
+  transition: all 0.3s ease;
 }
 #main-box #btnCreate:hover, #main-box #btnJoin:hover {
-  background-color: #9e750d;
+  background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold-primary) 100%);
+  box-shadow: 0 0 25px rgba(212,175,55,0.5);
 }
 
 #info-rules {
@@ -297,9 +333,10 @@ body {
   top: 10px;
   height: 90%;
   width: 500px;
-  color: white;
-  background: radial-gradient(#153333, #0f2225);
-  background-clip: padding-box;
+  color: var(--cream);
+  background: linear-gradient(180deg, rgba(26,42,74,0.98) 0%, rgba(10,22,40,0.99) 100%);
+  backdrop-filter: blur(10px);
+  border-left: 2px solid var(--gold-dark);
   border-radius: 0px 0px 0px 22px;
   padding: 0 0 0 12px;
   opacity: 1;
@@ -307,9 +344,11 @@ body {
   z-index: 300;
 }
 #info-rules h1 {
-  color: white;
-  border-top: 2px solid #d84a17c5;
-  font-family: "Play", sans-serif;
+  color: var(--gold-primary);
+  border-top: 2px solid var(--gold-dark);
+  font-family: "Cinzel", serif;
+  font-size: 18px;
+  padding-top: 10px;
 }
 #info-rules p, #info-rules li {
   padding: 0 6px;
@@ -330,27 +369,31 @@ body {
   position: absolute;
   left: -123px;
   top: 0;
-  color: white;
+  color: var(--gold-primary);
   font-size: 14px;
   font-weight: 700;
-  background-color: #0f2225;
-  text-shadow: 1px 1px black;
+  background: linear-gradient(90deg, var(--navy-dark) 0%, var(--navy-medium) 100%);
+  border: 1px solid var(--gold-dark);
+  border-right: none;
+  text-shadow: 0 0 10px rgba(212,175,55,0.3);
   padding: 12px 18px;
   border-radius: 30px 0px 0px 30px;
   cursor: pointer;
-  font-family: "Play", sans-serif;
+  font-family: "Cinzel", serif;
   z-index: 300;
+  transition: all 0.3s ease;
 }
 
 #how-to-play:hover {
-  color: #cccccc;
+  color: var(--gold-light);
+  box-shadow: 0 0 20px rgba(212,175,55,0.3);
 }
 
 #how-to-play:after {
   content: "";
   width: 32px;
   height: 32px;
-  border: 10px solid #0f2225;
+  border: 10px solid var(--navy-dark);
   position: absolute;
   bottom: -32px;
   border-top: 0;
@@ -377,7 +420,10 @@ body {
   padding: 12px;
   margin: 0 auto;
   border-radius: 0px 0px 8px 0px;
-  background-color: #e9e9e9;
+  background: linear-gradient(180deg, rgba(26,42,74,0.9) 0%, rgba(10,22,40,0.95) 100%);
+  color: var(--cream);
+  border: 1px solid var(--gold-dark);
+  border-top: none;
   top: -196px;
   z-index: 0;
   transition: 250ms;
@@ -385,26 +431,36 @@ body {
 #about-box ul {
   padding: 12px 0px 12px 20px;
   margin: 0;
+  color: var(--gold-light);
 }
 
 #about {
   position: absolute;
   cursor: pointer;
   font-weight: 700;
-  background-color: #e9e9e9;
-  border: none;
+  background: linear-gradient(180deg, var(--navy-medium) 0%, var(--navy-dark) 100%);
+  color: var(--gold-primary);
+  border: 1px solid var(--gold-dark);
+  border-top: none;
   outline: none;
   padding: 3px 32px;
   border-radius: 0px 0px 12px 12px;
   bottom: -21px;
   left: 0;
+  font-family: "Cinzel", serif;
+  transition: all 0.3s ease;
+}
+
+#about:hover {
+  color: var(--gold-light);
+  box-shadow: 0 4px 15px rgba(212,175,55,0.3);
 }
 
 #about:after {
   content: "";
   width: 11px;
   height: 11px;
-  border: 6px solid #e9e9e9;
+  border: 6px solid var(--navy-dark);
   position: absolute;
   top: -6px;
   border-top: 0;
@@ -423,14 +479,17 @@ body {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  color: rgba(87, 221, 255, 0.8);
+  color: var(--gold-primary);
   font-size: 14px;
   margin-bottom: 10px;
   text-decoration-line: none;
+  font-family: "Cinzel", serif;
+  transition: all 0.3s ease;
 }
 
 #credits:hover {
-  color: rgba(69, 171, 196, 0.8);
+  color: var(--gold-light);
+  text-shadow: 0 0 10px rgba(212,175,55,0.5);
   text-decoration-line: underline;
 }
 
@@ -450,24 +509,25 @@ body {
   width: 220px;
   left: -166px;
   top: 80px;
-  background-color: rgba(4, 14, 59, 0.5);
-  color: white;
+  background: linear-gradient(90deg, rgba(10,22,40,0.95) 0%, rgba(26,42,74,0.9) 100%);
+  border: 1px solid var(--gold-dark);
+  border-left: none;
+  color: var(--cream);
   text-align: center;
   transition: 300ms;
   border-radius: 0px 6px 6px 0px;
   z-index: 201;
+  backdrop-filter: blur(10px);
   -webkit-user-select: none;
-  /* Safari */
   -ms-user-select: none;
-  /* IE 10+ and Edge */
   user-select: none;
-  /* Standard syntax */
 }
 #users-online-box #users-online-label {
-  text-shadow: 1px 1px black;
+  text-shadow: 0 0 10px rgba(212,175,55,0.3);
   font-size: 14px;
   font-weight: 700;
-  font-family: "Play", sans-serif;
+  font-family: "Cinzel", serif;
+  color: var(--gold-primary);
   margin: 12px 40px 12px 0px;
 }
 #users-online-box .user-list-name {
@@ -512,7 +572,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 56px;
-  border-top: 2px solid #d84a17c5;
+  border-top: 1px solid var(--gold-dark);
 }
 #users-online-box ul .users-list-box .users-list-info {
   margin-right: 40px;
@@ -541,7 +601,9 @@ body {
   position: absolute;
   width: 260px;
   height: 30px;
-  background-color: #0f2014;
+  background: linear-gradient(90deg, var(--navy-dark) 0%, var(--navy-medium) 100%);
+  border: 1px solid var(--gold-dark);
+  border-radius: 4px;
   margin-left: 150px;
   margin-top: 10px;
   z-index: 1;
@@ -555,23 +617,22 @@ body {
   padding: 0;
   width: calc(100% - 65px);
   height: 100%;
-  background-color: #0f2014;
-  color: white;
+  background: transparent;
+  color: var(--cream);
+  font-family: "Cinzel", serif;
 }
 #invite-link-box #invite-label {
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
   padding: 0px 14px;
-  background-color: #0f2014;
-  color: #d84a17;
+  background: linear-gradient(90deg, var(--navy-dark) 0%, var(--navy-medium) 100%);
+  color: var(--gold-primary);
   pointer-events: none;
+  font-family: "Cinzel", serif;
   -webkit-user-select: none;
-  /* Safari */
   -ms-user-select: none;
-  /* IE 10+ and Edge */
   user-select: none;
-  /* Standard syntax */
 }
 #invite-link-box #invite-label:hover {
   position: absolute;
@@ -579,44 +640,49 @@ body {
   opacity: 0;
 }
 #invite-link-box button {
-  background-color: #15332a;
-  color: white;
+  background: linear-gradient(180deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
+  color: var(--navy-dark);
   height: 100%;
   width: 60px;
   border: none;
+  border-radius: 0 4px 4px 0;
   cursor: pointer;
+  font-weight: 700;
+  font-family: "Cinzel", serif;
+  transition: all 0.3s ease;
   -webkit-user-select: none;
-  /* Safari */
   -ms-user-select: none;
-  /* IE 10+ and Edge */
   user-select: none;
-  /* Standard syntax */
 }
 #invite-link-box button:hover {
-  background-color: #1a3f34;
+  background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold-primary) 100%);
 }
 
 #volume-button {
   position: absolute;
   width: 42px;
   height: 42px;
-  background-color: rgba(4, 14, 59, 0.5);
+  background: linear-gradient(180deg, var(--navy-medium) 0%, var(--navy-dark) 100%);
+  border: 1px solid var(--gold-dark);
   right: 160px;
   margin-top: 10px;
   z-index: 200;
-  border: 1px solid black;
   border-radius: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+#volume-button:hover {
+  box-shadow: 0 0 15px rgba(212,175,55,0.4);
 }
 #volume-button i {
-  color: white;
+  color: var(--gold-primary);
   font-size: 18px;
 }
 #volume-button .fa-volume-mute {
-  color: #ff9393;
+  color: #ff6b6b;
 }
 
 #bg-color-box {
@@ -634,27 +700,34 @@ body {
   width: 42px;
   height: 42px;
   border-radius: 100%;
-  border: 1px solid black;
+  border: 2px solid var(--navy-dark);
   cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+#bg-color-box .bg-colors:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(212,175,55,0.4);
 }
 #bg-color-box #bg-green {
-  background-color: #265328af;
+  background: linear-gradient(135deg, #1a6b3a 0%, #0d4025 100%);
 }
 #bg-color-box #bg-blue {
-  background-color: #274f55af;
+  background: linear-gradient(135deg, #2a5a6a 0%, #1a3a4a 100%);
 }
 #bg-color-box #bg-purple {
-  background-color: #293b5aaf;
+  background: linear-gradient(135deg, #3a3a6a 0%, #2a2a4a 100%);
 }
 #bg-color-box #bg-red {
-  background-color: #582828af;
+  background: linear-gradient(135deg, #6a2a2a 0%, #4a1a1a 100%);
 }
 #bg-color-box #bg-brown {
-  background-color: #534e26af;
+  background: linear-gradient(135deg, #5a5026 0%, #3a3016 100%);
 }
 
 .bg-selected {
-  border: 1px solid white !important;
+  border: 2px solid var(--gold-primary) !important;
+  box-shadow: 0 0 15px rgba(212,175,55,0.5) !important;
 }
 
 #leave-button {
@@ -662,73 +735,73 @@ body {
   margin-top: 10px;
   margin-left: 10px;
   height: 30px;
-  padding: 0px 6px;
-  background-color: transparent;
-  border: none;
+  padding: 0px 12px;
+  background: linear-gradient(180deg, rgba(26,42,74,0.9) 0%, rgba(10,22,40,0.95) 100%);
+  border: 1px solid var(--gold-dark);
   outline: none;
-  color: rgba(255, 255, 255, 0.6);
-  border: 2px solid rgba(255, 255, 255, 0.6);
+  color: var(--gold-primary);
   border-radius: 12px;
   font-weight: 700;
+  font-family: "Cinzel", serif;
+  font-size: 12px;
   width: fit-content;
   cursor: pointer;
   text-align: center;
   z-index: 10;
+  transition: all 0.3s ease;
   -webkit-user-select: none;
-  /* Safari */
   -ms-user-select: none;
-  /* IE 10+ and Edge */
   user-select: none;
-  /* Standard syntax */
 }
 #leave-button i {
   transform: rotate(180deg);
 }
 
 #leave-button:hover {
-  color: rgba(255, 255, 255, 0.8);
-  border: 2px solid rgba(255, 255, 255, 0.8);
+  color: var(--gold-light);
+  border: 1px solid var(--gold-primary);
+  box-shadow: 0 0 15px rgba(212,175,55,0.3);
 }
 
 #leave-button:active {
-  color: white;
-  border: 2px solid white;
+  color: var(--gold-light);
+  transform: scale(0.98);
 }
 
 #leave-table {
   position: absolute;
   bottom: 40px;
   right: 10px;
-  padding: 0px 6px;
+  padding: 0px 12px;
   height: 30px;
-  background-color: rgba(0, 0, 0, 0.2);
-  border: none;
+  background: linear-gradient(180deg, rgba(26,42,74,0.9) 0%, rgba(10,22,40,0.95) 100%);
+  border: 1px solid var(--gold-dark);
   outline: none;
-  color: rgba(255, 255, 255, 0.6);
-  border: 2px solid rgba(255, 255, 255, 0.8);
+  color: var(--gold-primary);
   border-radius: 12px;
   font-weight: 700;
+  font-family: "Cinzel", serif;
+  font-size: 12px;
   width: fit-content;
   cursor: pointer;
   text-align: center;
   z-index: 10;
+  transition: all 0.3s ease;
   -webkit-user-select: none;
-  /* Safari */
   -ms-user-select: none;
-  /* IE 10+ and Edge */
   user-select: none;
-  /* Standard syntax */
 }
 #leave-table i {
-  color: lime;
+  color: #50fa7b;
 }
 
 #leave-table:hover {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--gold-light);
+  box-shadow: 0 0 15px rgba(212,175,55,0.3);
 }
 
 #leave-table:active {
-  color: white;
+  transform: scale(0.98);
 }
 
 #player-result-big {
@@ -740,31 +813,28 @@ body {
   left: 50%;
   margin-left: -200px;
   font-size: 18px;
-  color: white;
+  font-family: "Cinzel", serif;
+  letter-spacing: 2px;
+  color: var(--cream);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: black;
-  background: rgba(0, 0, 0, 0.25);
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0) 100%);
-  text-shadow: 0 0 10px black;
+  background: linear-gradient(90deg, rgba(10,22,40,0) 0%, rgba(10,22,40,0.85) 20%, rgba(10,22,40,0.9) 50%, rgba(10,22,40,0.85) 80%, rgba(10,22,40,0) 100%);
+  text-shadow: 0 0 15px rgba(0,0,0,0.8);
   z-index: 50;
   pointer-events: none;
   -webkit-user-select: none;
-  /* Safari */
   -ms-user-select: none;
-  /* IE 10+ and Edge */
   user-select: none;
-  /* Standard syntax */
 }
 
 .color-green {
-  color: #00de00 !important;
+  color: #50fa7b !important;
 }
 
 .color-red {
-  color: #f20000 !important;
+  color: #ff6b6b !important;
 }
 
 #join-mid-game-label {
@@ -772,8 +842,11 @@ body {
   left: 50%;
   margin-top: 280px;
   display: inline-block;
-  font-size: 22px;
-  color: white;
+  font-size: 20px;
+  font-family: "Cinzel", serif;
+  letter-spacing: 2px;
+  color: var(--gold-primary);
+  text-shadow: 0 0 20px rgba(212,175,55,0.4);
   transform: translateX(-50%);
   text-align: center;
 }
@@ -783,8 +856,11 @@ body {
   left: 50%;
   margin-top: 240px;
   display: inline-block;
-  font-size: 36px;
-  color: white;
+  font-size: 32px;
+  font-family: "Cinzel", serif;
+  letter-spacing: 2px;
+  color: var(--cream);
+  text-shadow: 0 0 20px rgba(0,0,0,0.6);
   transform: translateX(-50%);
   text-align: center;
 }
@@ -809,17 +885,15 @@ body {
   position: relative;
   width: 100px;
   height: 100px;
-  border: 2px solid white;
+  border: 2px solid var(--gold-dark);
   stroke-dasharray: 1000;
   stroke-dashoffset: 500;
   border-radius: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
+  background: linear-gradient(180deg, rgba(26,42,74,0.7) 0%, rgba(10,22,40,0.8) 100%);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4), inset 0 0 20px rgba(0,0,0,0.2);
   -webkit-user-select: none;
-  /* Safari */
   -ms-user-select: none;
-  /* IE 10+ and Edge */
   user-select: none;
-  /* Standard syntax */
 }
 
 #players-timer-container {
@@ -932,11 +1006,12 @@ body {
 .player-sum {
   position: absolute;
   margin: 0 auto;
-  padding: 4px 8px;
+  padding: 4px 10px;
   top: -45px;
-  color: #e0e000;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 4px;
+  color: var(--gold-primary);
+  background: linear-gradient(180deg, rgba(26,42,74,0.95) 0%, rgba(10,22,40,0.98) 100%);
+  border: 1px solid var(--gold-dark);
+  border-radius: 6px;
   display: inline-block;
   pointer-events: none;
   z-index: 15;
@@ -944,10 +1019,11 @@ body {
   transform: translateX(-50%) !important;
   transition: 100ms ease-in-out;
   text-align: center;
-  font-family: "Play", sans-serif;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
   left: 50%;
-  /* allow the width to be calculated dynamically */
   width: auto;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
 
 .player-result {
@@ -960,41 +1036,40 @@ body {
   align-items: center;
   justify-content: center;
   margin-left: -27px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
-  background: rgba(0, 0, 0, 0.8);
-  border: 2px solid black;
-  background: #1f1f1f;
-  background: linear-gradient(0deg, #1f1f1f 0%, #414141 50%, #222222 100%);
+  font-family: "Cinzel", serif;
+  background: linear-gradient(180deg, rgba(26,42,74,0.95) 0%, rgba(10,22,40,0.98) 100%);
+  border: 2px solid var(--gold-dark);
   border-radius: 100%;
-  box-shadow: 0 0 5px black;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
   pointer-events: none;
   z-index: 20;
 }
 
 .result-lose {
-  color: #f20000;
-  border: 2px solid #f20000;
-  text-shadow: 0 0 4px #8e0000;
+  color: #ff6b6b;
+  border: 2px solid #ff6b6b;
+  text-shadow: 0 0 10px rgba(255,107,107,0.5);
 }
 
 .result-draw {
-  border: 2px solid #c8c8c8;
-  color: #c8c8c8;
-  text-shadow: 0 0 4px #646464;
+  border: 2px solid #a0a0a0;
+  color: #c0c0c0;
+  text-shadow: 0 0 10px rgba(192,192,192,0.3);
 }
 
 .result-win {
-  border: 2px solid #00de00;
-  color: #00de00;
-  text-shadow: 0 0 4px #007a00;
+  border: 2px solid #50fa7b;
+  color: #50fa7b;
+  text-shadow: 0 0 10px rgba(80,250,123,0.5);
 }
 
 .result-blackjack {
-  border: 2px solid gold;
-  color: gold;
-  text-shadow: 0 0 4px #9b7300;
-  font-size: 17px;
+  border: 2px solid var(--gold-primary);
+  color: var(--gold-primary);
+  text-shadow: 0 0 15px rgba(212,175,55,0.6);
+  font-size: 16px;
 }
 
 .player-coin {
@@ -1036,17 +1111,19 @@ body {
   align-items: center;
   font-size: 50px;
   border-radius: 100%;
-  border: 2px solid rgba(255, 255, 255, 0);
-  color: lime;
+  border: 2px solid rgba(212,175,55,0);
+  color: var(--gold-primary);
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .empty-slot:hover {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(212,175,55,0.2);
+  border: 2px solid var(--gold-dark);
 }
 
 .empty-slot i {
-  text-shadow: 0 0 4px lime;
+  text-shadow: 0 0 15px rgba(212,175,55,0.5);
 }
 
 .card {
@@ -1192,28 +1269,27 @@ i {
   display: flex;
   bottom: 40px;
   width: 200px;
-  color: white;
+  color: var(--cream);
   text-align: center;
   border-radius: 10px;
-  font-family: "Play", sans-serif;
+  font-family: "Cinzel", serif;
   -webkit-user-select: none;
-  /* Safari */
   -ms-user-select: none;
-  /* IE 10+ and Edge */
   user-select: none;
-  /* Standard syntax */
 }
 
 .balance-bet {
-  background-color: rgba(0, 0, 0, 0.658);
-  padding: 4px;
-  border: 1px solid white;
+  background: linear-gradient(180deg, rgba(26,42,74,0.9) 0%, rgba(10,22,40,0.95) 100%);
+  padding: 6px;
+  border: 1px solid var(--gold-dark);
   width: 125px;
   border-radius: 10px;
   margin-left: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
 .balance-bet #total-bet {
-  color: #e0e000;
+  color: var(--gold-primary);
+  font-weight: 700;
 }
 
 #dealer {
@@ -1223,32 +1299,31 @@ i {
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  font-family: "Play", sans-serif;
+  font-family: "Cinzel", serif;
   -webkit-user-select: none;
-  /* Safari */
   -ms-user-select: none;
-  /* IE 10+ and Edge */
   user-select: none;
-  /* Standard syntax */
 }
 #dealer h1 {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  font-size: 36px;
-  color: white;
+  font-size: 32px;
+  letter-spacing: 4px;
+  color: var(--gold-primary);
   top: 10px;
-  text-shadow: 0 0 10px black;
+  text-shadow: 0 0 20px rgba(212,175,55,0.5), 0 2px 4px rgba(0,0,0,0.8);
   margin: 0;
   padding: 0;
 }
 #dealer #dealerSum {
   position: absolute;
-  padding: 4px 8px;
+  padding: 4px 10px;
   top: 140px;
-  color: #e0e000;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 4px;
+  color: var(--gold-primary);
+  background: linear-gradient(180deg, rgba(26,42,74,0.95) 0%, rgba(10,22,40,0.98) 100%);
+  border: 1px solid var(--gold-dark);
+  border-radius: 6px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1259,8 +1334,9 @@ i {
   transition: 100ms ease-in-out;
   transform: translateX(-50%) !important;
   left: 50%;
-  /* allow the width to be calculated dynamically */
   width: auto;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
 #dealer .dealer-cards {
   display: flex;
@@ -1298,33 +1374,34 @@ i {
   width: 68px;
   height: 68px;
   display: inline-block;
-  color: black;
+  color: white;
   border-radius: 100%;
   background-color: rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 10px black;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
   cursor: pointer;
-  border: none;
+  border: 2px solid var(--gold-dark);
   outline: none;
   font-weight: 700;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  text-shadow: 1px -1px gray;
+  font-family: "Cinzel", serif;
+  font-size: 14px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+  transition: all 0.2s ease;
 }
 #bets-container button:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(212,175,55,0.5);
 }
 #bets-container button:active {
-  transform: scale(1);
+  transform: scale(1.05);
 }
 #bets-container .max-clear {
-  font-weight: 500;
-  text-shadow: 0 0 transparent;
-  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
-  color: white;
-  background-color: rgba(4, 14, 59, 0.5);
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(212,175,55,0.3);
+  color: var(--gold-primary);
+  background: linear-gradient(180deg, rgba(26,42,74,0.9) 0%, rgba(10,22,40,0.95) 100%);
   border-radius: 10px;
   height: 30px;
-  border: 1px solid black;
+  border: 1px solid var(--gold-dark);
 }
 #bets-container #chip10 {
   background: url("/imgs/chips/Casino_Chip_White.svg") no-repeat;
@@ -1373,25 +1450,26 @@ i {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  text-shadow: 0 0 10px black;
+  text-shadow: 0 0 15px rgba(0,0,0,0.8);
   z-index: 29;
-  color: white;
-  font-family: "Play", sans-serif;
+  color: var(--cream);
+  font-family: "Cinzel", serif;
   -webkit-user-select: none;
-  /* Safari */
   -ms-user-select: none;
-  /* IE 10+ and Edge */
   user-select: none;
-  /* Standard syntax */
 }
 .user-action-container .user-action-text {
   pointer-events: none;
+  letter-spacing: 1px;
 }
 .user-action-container #your-turn-label {
   position: absolute;
-  font-size: 24px;
+  font-size: 22px;
+  letter-spacing: 2px;
   top: 12px;
   pointer-events: none;
+  color: var(--gold-primary);
+  text-shadow: 0 0 20px rgba(212,175,55,0.5);
 }
 .user-action-container .user-action-box {
   width: 150px;
@@ -1399,39 +1477,40 @@ i {
 }
 .user-action-container .user-action {
   position: relative;
-  font-size: 58px;
-  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 54px;
+  background: linear-gradient(180deg, rgba(26,42,74,0.9) 0%, rgba(10,22,40,0.95) 100%);
   width: 90px;
   height: 90px;
   outline: none;
-  border: none;
+  border: 2px solid var(--gold-dark);
   border-radius: 100%;
-  border: 2px solid black;
   cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  transition: all 0.2s ease;
 }
 .user-action-container .user-action:hover {
-  transform: scale(1.028);
-  background-color: rgba(50, 50, 50, 0.5);
+  transform: scale(1.08);
+  box-shadow: 0 0 25px rgba(212,175,55,0.4);
 }
 .user-action-container .user-action:active {
-  transform: scale(1);
+  transform: scale(1.02);
 }
 .user-action-container #stand {
-  color: red;
+  color: #ff6b6b;
 }
 .user-action-container #hit {
-  color: green;
+  color: #50fa7b;
 }
 .user-action-container #doubleDown {
   position: relative;
-  color: goldenrod;
+  color: var(--gold-primary);
 }
 .user-action-container #doubleDown span {
   position: absolute;
   left: 28px;
   top: 39px;
   font-size: 27px;
-  color: #4e3c0d;
+  color: var(--gold-dark);
 }
 
 .ready {
@@ -1445,15 +1524,17 @@ i {
   margin-top: -50%;
   border-radius: 100%;
   font-weight: 700;
-  font-size: 17px;
-  font-family: "Play", sans-serif;
+  font-size: 15px;
+  font-family: "Cinzel", serif;
+  letter-spacing: 1px;
   outline: none;
-  border: none;
+  border: 2px solid var(--gold-light);
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 217, 0, 0.8);
-  box-shadow: 0 0 10px gold;
+  background: linear-gradient(180deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
+  color: var(--navy-dark);
+  box-shadow: 0 0 25px rgba(212,175,55,0.6);
   animation-name: placeBetsColor;
   animation-duration: 2s;
   animation-iteration-count: infinite;
@@ -1463,10 +1544,10 @@ i {
 
 @keyframes placeBetsColor {
   0% {
-    background-color: rgba(255, 217, 0, 0.8);
+    box-shadow: 0 0 25px rgba(212,175,55,0.6);
   }
   50% {
-    background-color: rgba(255, 217, 0, 0.5);
+    box-shadow: 0 0 40px rgba(212,175,55,0.9);
   }
 }
 .ready:hover {
@@ -1724,5 +1805,149 @@ i {
 
   #leave-button {
     font-size: 10px;
+  }
+}
+
+/* ============================================
+   LUXURY CARD ENHANCEMENTS
+   ============================================ */
+
+/* Card back styling - ensure PNG fits properly */
+.dealerCardImg[src*="card-back"],
+.cardImg[src*="card-back"] {
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+/* Enhance all card images */
+.cardImg,
+.dealerCardImg {
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Flip card enhancements */
+.flip-card-front img,
+.flip-card-back img {
+  border-radius: 6px;
+}
+
+/* Player name styling enhancement */
+.player-name {
+  font-family: "Cinzel", serif;
+  font-weight: 600;
+  color: var(--cream);
+}
+
+.highlight {
+  color: var(--gold-primary) !important;
+}
+
+/* Input field luxury styling */
+#main-box input {
+  background: linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
+  border: 2px solid var(--gold-dark);
+  color: var(--navy-dark);
+  font-family: "Cinzel", serif;
+  padding: 8px 12px;
+}
+
+#main-box input:focus {
+  box-shadow: 0 0 15px rgba(212,175,55,0.4);
+  border-color: var(--gold-primary);
+}
+
+#main-box input::placeholder {
+  color: #888;
+  font-style: italic;
+}
+
+/* Avatar box enhancements */
+#main-box #avatar-box .slideAvatars {
+  border: 2px solid var(--gold-dark);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+#main-box #avatar-box button:hover i {
+  color: var(--gold-primary);
+}
+
+/* Play buttons luxury styling */
+#main-box .play-btns {
+  font-family: "Cinzel", serif;
+  letter-spacing: 1px;
+}
+
+/* Timer animation enhancement */
+.players-timer .circle-animation {
+  stroke: var(--gold-primary);
+}
+
+@keyframes dash {
+  100% {
+    stroke-dashoffset: 0;
+    stroke: #ff6b6b;
+  }
+}
+
+/* Current player highlight */
+.current-player-highlight {
+  color: var(--navy-dark) !important;
+  background: linear-gradient(180deg, var(--gold-primary) 0%, var(--gold-dark) 100%) !important;
+  border: 2px solid var(--gold-light) !important;
+  box-shadow: 0 0 25px rgba(212,175,55,0.6) !important;
+}
+
+/* Scrollbar styling for luxury feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--navy-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold-dark);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-primary);
+}
+
+/* Mobile logo adjustments */
+@media all and (max-width: 768px) {
+  #luxury-logo {
+    width: 140px;
+    top: 15px;
+  }
+  
+  #main-menu #blackjack-title {
+    margin-top: 160px;
+  }
+}
+
+@media all and (max-width: 576px) {
+  #luxury-logo {
+    width: 120px;
+    top: 10px;
+  }
+  
+  #main-menu #blackjack-title {
+    margin-top: 140px;
+    font-size: 28px;
+  }
+}
+
+@media all and (max-width: 386px) {
+  #luxury-logo {
+    width: 100px;
+  }
+  
+  #main-menu #blackjack-title {
+    margin-top: 120px;
+    font-size: 24px;
   }
 }
