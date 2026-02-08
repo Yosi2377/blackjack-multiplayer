@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: zozo-blackjack-multiplayer
+    env: node
+    buildCommand: npm install
+    startCommand: node index.js
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
